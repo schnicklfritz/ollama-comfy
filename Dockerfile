@@ -2,15 +2,15 @@ FROM nvidia/cuda:13.2.0-runtime-ubuntu24.04
 
 # ── System deps ───────────────────────────────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    zstd \
-    netcat-openbsd \
-    nano \
     curl \
     ca-certificates \
     python3 \
     python3-pip \
     python3-dev \
     supervisor \
+    zstd \
+    netcat-openbsd \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # ── Ollama ────────────────────────────────────────────────────────────────────
@@ -22,7 +22,6 @@ RUN pip3 install --no-cache-dir --break-system-packages -r /tmp/requirements.txt
 
 # ── App files ─────────────────────────────────────────────────────────────────
 COPY scripts/ /scripts/
-RUN chmod +x /scripts/*.sh
 
 COPY supervisor/ /etc/supervisor/conf.d/
 
