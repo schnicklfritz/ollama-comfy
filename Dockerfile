@@ -41,6 +41,8 @@ ENV OLLAMA_HOST=0.0.0.0:11434 \
     MCP_PORT=3000 \
     DEEPSEEK_API_KEY="" \
     DEEPSEEK_BASE_URL="https://api.deepseek.com" \
-    OLLAMA_MODEL="comfy-llm"
+    OLLAMA_MODEL="comfy-llm" \
+    OPENWEBUI_PORT=8080 \
+    OLLAMA_BASE_URL="http://localhost:11434"
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
